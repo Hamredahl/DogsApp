@@ -1,4 +1,5 @@
-﻿using DogsApp.Mvc.Services;
+﻿using DogsApp.Mvc.Models;
+using DogsApp.Mvc.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DogsApp.Mvc.Controllers;
@@ -14,5 +15,18 @@ public class DogsController : Controller
         return View(model);
     }
 
+    [HttpGet("create")]
 
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost("create")] 
+    public IActionResult Create(Dog dog)
+    {
+
+        dogService.AddDog(dog);
+        return RedirectToAction("Index");
+    }
 }

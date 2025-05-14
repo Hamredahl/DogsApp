@@ -12,6 +12,7 @@ public class DogService
 
     public void AddDog(Dog dog)
         {
+            dog.Id = dogs.Max(d => d.Id) + 1;
             dogs.Add(dog);
         }
 
