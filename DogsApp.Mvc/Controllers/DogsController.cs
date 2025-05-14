@@ -25,8 +25,21 @@ public class DogsController : Controller
     [HttpPost("create")] 
     public IActionResult Create(Dog dog)
     {
-
         dogService.AddDog(dog);
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet("edit/{id}")]
+    public IActionResult Edit(int Id)
+    {
+        var model = dogService.GetDogById(Id);
+        return View(model);
+    }
+
+    [HttpPost("edit/{id}")]
+    public IActionResult Edit(Dog dog)
+    {
+        dogService.EditDog(dog);
+        return RedirectToAction(nameof(Index));
     }
 }

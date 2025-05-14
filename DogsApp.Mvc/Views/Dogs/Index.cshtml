@@ -10,7 +10,7 @@
         <ul>
             @foreach(var dog in Model)
             {
-                <li>@dog.Name</li>
+                <li>@dog.Name, @dog.Age <a href="/edit/@dog.Id"><button>Edit</button></a></li>
             }
         </ul>
         <a href="/create">Add a doggo</a>
