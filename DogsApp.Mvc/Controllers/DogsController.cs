@@ -6,7 +6,7 @@ namespace DogsApp.Mvc.Controllers;
 
 public class DogsController : Controller
 {
-    static DogService dogService = new DogService();
+    static readonly DogService dogService = new();
 
     [HttpGet("")]
     public IActionResult Index()
@@ -36,10 +36,10 @@ public class DogsController : Controller
         return View(model);
     }
 
-    [HttpPost("edit/{id}")]
-    public IActionResult Edit(Dog dog)
+    [HttpPost("edit")]
+    public IActionResult Edit(Dog updatedDog)
     {
-        dogService.EditDog(dog);
+        dogService.EditDog(updatedDog);
         return RedirectToAction(nameof(Index));
     }
 }

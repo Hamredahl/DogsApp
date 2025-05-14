@@ -1,17 +1,21 @@
 ﻿@model DogsApp.Mvc.Models.Dog
 <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Edit Dog</title>
-        <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
-    </head>
-    <body>
-        <form action="/edit/@Model.Id" method="post">
-            <label>Name: </label>
-            <input type="text" name="Name" value=@Model.Name />
-            <label>Age: </label>
-            <input type="number" name="Age" value=@Model.Age />
-            <input type="submit" value="Edit" />
-        </form>
-    </body>
-    </html>
+<html>
+<head>
+    <title>Edit Dog</title>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+</head>
+<body>
+    <form action="/Edit" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <label>Name:</label>
+        <input type="text" name="Name" value="@Model.Name" /><br />
+
+        <label>Age:</label>
+        <input type="text" name="Age" value="@Model.Age" /><br />
+
+        <input type="submit" value="Save" />
+    </form>
+</body>
+</html>
