@@ -42,4 +42,11 @@ public class DogsController : Controller
         dogService.EditDog(updatedDog);
         return RedirectToAction(nameof(Index));
     }
+
+    [HttpPost("remove")]
+    public IActionResult Remove(int Id)
+    {
+        dogService.RemoveDog(dogService.GetDogById(Id));
+        return RedirectToAction(nameof(Index));
+    }
 }

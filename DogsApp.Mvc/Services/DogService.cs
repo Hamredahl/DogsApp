@@ -40,6 +40,19 @@ public class DogService
         }
     }
 
+    public void RemoveDog(Dog dog)
+    {
+        Dog toRemove = dogs.First(d => d.Id == dog.Id);
+        try
+        {
+            dogs.Remove(dog);
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Dog not found", e);
+        }
+    }
+
     public Dog[] GetAllDogs() => dogs
         .OrderBy(d => d.Name)
         .ToArray();
