@@ -1,0 +1,18 @@
+﻿@model DogsApp.Mvc.Models.Dog[]
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dogs</title>
+        <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+    </head>
+    <body>
+        <h2>Doggos</h2>
+        <ul>
+            @foreach(var dog in Model)
+            {
+                <li>@dog.Name</li>
+            }
+        </ul>
+        <a href="/create">Add a doggo</a>
+    </body>
+    </html>
